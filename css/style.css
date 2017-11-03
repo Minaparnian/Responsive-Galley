@@ -1,65 +1,82 @@
 body {
+  font-family: 'Saira Semi Condensed', sans-serif;
   background-color: #ef6a3b;
-  /*use transition to make your background differnt in a 2 second.*/
+    /*use transition to make your background differnt in a 2 second.*/
   transition: 2s;
 }
 
 h1 {
-  font-family: Satisfy;
   font-size:50px;
   text-align:center;
-  color:black;
   padding:1%;
   color: white;
+  cursor: pointer;
+  text-shadow: 0px 2px 2px black;
 }
 
-#container {
-   width: 66%;
-   -webkit-column-count:1;
-   -moz-column-count:1;
-   column-count:1;
-   -webkit-column-gap:10px;
-   -moz-column-gap:10px;
-   column-gap:10px;
-   margin: 0 auto;
-   position: relative;
-
-
+.animated {
+  -webkit-animation-duration: 1s;
 }
 
 
 /*Center text inside the image*/
-.modal-body {
-   width: 100%;
+.text {
+  color: white;
+  font-size: 40px;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.container {
+   position: relative;
+   width: 66%;
+   margin: 20px auto;
+   -webkit-column-count:1;
+   -moz-column-count:1;
+   column-count:1;
+   /*hidden the outside of the image when hover*/
+   overflow: hidden;
+}
+
+
+/*overlay div on the top of image*/
+.overlay {
    position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%,-50%);
-   padding:0px;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   height: 100%;
+   width: 100%;
+   opacity: 0;
+   transition: .2s all ease-in;
+   background-color: rgba(1, 1, 1, 0.6);
+   cursor: pointer;
+
 
 }
 
-/*in 2s apcity from 1 change to half*/
-img:hover{
-  /*transform: scale(1.2);*/
-  transition: 2s;
-  opacity: .5;
-
-}
-
-.model-body:hover {
-  visibility:visible;
+.container:hover .overlay {
   opacity: 1;
-  border: 1px solid red;
 }
 
+/*image zoom on hover inside a div*/
+.container:hover img {
+  transform: scale(1.1);
+  transition: .9s ease;
+}
 
 
 .img-responsive{
   width:100%;
   height:auto;
-  margin: 4% auto;
-  box-shadow: 0px 5px 20px #000;
+  margin: 0 auto;
+  box-shadow: 0px 5px 20px black;
   cursor: pointer;
   /*border: 1px solid red;*/
 }
@@ -68,7 +85,7 @@ img:hover{
   body {
     background-color: #f7d9cf;
   }
-  #container{
+  .container{
   -webkit-column-count:1;
   -moz-column-count:1;
   column-count:1;
@@ -76,7 +93,13 @@ img:hover{
  }
 
   h1 {
-    color: #ef6a3b;
+    color: white;
     font-size: 30px;
   }
+
+  .text{
+    color: white;
+    font-size: 30px;
+  }
+
 }
